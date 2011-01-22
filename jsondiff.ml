@@ -408,7 +408,8 @@ let () =
                   ("-numeric", Arg.Set numeric, "Compare numeric values numerically");
                   ("-percentage", Arg.Set percentage,
                     "Print numeric values percentage difference") ] in
-  let msg = "JSON sensitive diff of two files" in
+  let msg = "Usage: jsondiff [OPTION]... FILE1 FILE2\n\
+             JSON sensitive diff of two files\n" in
   Arg.parse options (fun file -> files := !files @ [file]) msg;
   if !numeric && !percentage then
     (prerr_endline "options -numeric and -percentage are incompatible";
